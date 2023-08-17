@@ -1,0 +1,13 @@
+{
+    "Name": "ToneAPI.WeaponFireCallbacks",
+    "Description": "Provides AddCallback_OnWeaponFire",
+    "Version": "0.0.1",
+    "LoadPriority": 1,
+    "RequiredOnClient": false,
+    "Scripts": [
+        {
+            "Path": "weaponFireCallbacks.nut",
+            "RunOn": "SERVER"
+        }
+    ]
+}
