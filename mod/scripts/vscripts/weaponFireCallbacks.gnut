@@ -27,7 +27,6 @@ void function OnWeaponFired(entity weapon, WeaponPrimaryAttackParams attackParam
         array< void functionref(WeaponPrimaryAttackParams attackParams) > callbacks = file.weaponCallbacks[weapon]
         foreach(callback in callbacks){
             callback(attackParams)
-            print("callback")
         }
     }
 }
