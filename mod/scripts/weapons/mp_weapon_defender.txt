@@ -18,7 +18,8 @@ WeaponData
 	"leveled_pickup"								"1"
 	"weaponSubClass"								"rocket"
 
-	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_defender"
+	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_defender"
+	// "OnWeaponPrimaryAttack"							"OnWeaponPrimaryAttack_weapon_defender"
 	"OnWeaponNpcPrimaryAttack"						"OnWeaponNpcPrimaryAttack_weapon_defender"
 
 	// Menu

@@ -1,3 +1,5 @@
+untyped
+
 globalize_all_functions
 
 struct {
@@ -10,6 +12,14 @@ void function AddCallback_OnWeaponFired(entity weapon, void functionref(WeaponPr
     }else{
         file.weaponCallbacks[weapon] <- [callback]
     }
+    AddEntityDestroyedCallback(weapon, HandleWeaponDestroyed)
+}
+
+function HandleWeaponDestroyed(weapon){
+    entity w = expect entity(weapon)
+    if(w in file.weaponCallbacks){
+        delete file.weaponCallbacks[w]
+    }
 }
 
 void function OnWeaponFired(entity weapon, WeaponPrimaryAttackParams attackParams){
@@ -17,6 +27,7 @@ void function OnWeaponFired(entity weapon, WeaponPrimaryAttackParams attackParam
         array< void functionref(WeaponPrimaryAttackParams attackParams) > callbacks = file.weaponCallbacks[weapon]
         foreach(callback in callbacks){
             callback(attackParams)
+            print("callback")
         }
     }
 }
@@ -24,92 +35,152 @@ void function OnWeaponFired(entity weapon, WeaponPrimaryAttackParams attackParam
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_alternator_smg( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_alternator_smg(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_alternator_smg(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_defender( entity weapon, WeaponPrimaryAttackParams attackParams )
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_defender( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_defender(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_defender(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_doubletake( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_doubletake(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_doubletake(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_lmg( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_lmg(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_lmg(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_lstar( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_lstar(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_lstar(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_mastiff( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_mastiff(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_mastiff(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_mgl( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_mgl(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_mgl(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_rocket_launcher( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_rocket_launcher(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_rocket_launcher(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_shotgun( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_shotgun(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_shotgun(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_shotgun_doublebarrel( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_shotgun_doublebarrel(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_shotgun_doublebarrel(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_shotgun_pistol( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_shotgun_pistol(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_shotgun_pistol(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_smart_pistol( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_smart_pistol(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_smart_pistol(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_smr( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_smr(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_smr(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_sniper( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_sniper(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_sniper(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_softball( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    OnWeaponPrimaryAttack_weapon_softball(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_weapon_softball(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_generic( entity weapon, WeaponPrimaryAttackParams attackParams ){
@@ -117,6 +188,10 @@ var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_generic( entity we
 }
 
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_GenericBoltWithDrop_Player( entity weapon, WeaponPrimaryAttackParams attackParams ){
-    OnWeaponPrimaryAttack_GenericBoltWithDrop_Player(weapon, attackParams)
+    var result = OnWeaponPrimaryAttack_GenericBoltWithDrop_Player(weapon, attackParams)
+    if(result == 0){
+        return 0
+    }
     OnWeaponFired(weapon, attackParams)
+    return result
 }

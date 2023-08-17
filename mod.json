@@ -6,7 +6,7 @@
     "RequiredOnClient": false,
     "Scripts": [
         {
-            "Path": "weaponFireCallbacks.nut",
+            "Path": "weaponFireCallbacks.gnut",
             "RunOn": "SERVER"
         }
     ]
