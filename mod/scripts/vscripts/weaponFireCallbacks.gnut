@@ -88,7 +88,7 @@ void function ClearInvalidWeaponsThread()
 
         foreach( w in invalidList )
             delete file.weaponCallbacks[w]
-        
+
         wait 1.0 // Some arbitrary number that isn't WaitFrame(), don't need to run this very often
     }
 
@@ -100,10 +100,6 @@ void function WeaponFireCallbacks_OnWeaponFired( entity weapon, WeaponPrimaryAtt
 {
     if ( weapon in file.weaponCallbacks )
     {
-        #if CLIENT
-            ClearInvalidWeapons()
-        #endif
-        
         array< void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) > callbacks = file.weaponCallbacks[weapon]
         foreach ( callback in callbacks )
             callback( weapon, attackParams, ammoUsed )
