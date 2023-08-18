@@ -1,0 +1,1226 @@
+globalize_all_functions
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_ammo_swap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_ammo_swap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_ammo_swap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_ammo_swap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_basic_block( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanability_basic_block( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_smoke( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanability_smoke( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_gun_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_gun_shield( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_gun_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_gun_shield( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_TitanHover( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_TitanHover( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_NPC_OnWeaponPrimaryAttack_TitanHover( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = NPC_OnWeaponPrimaryAttack_TitanHover( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_laser_trip( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_laser_trip( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_laser_trip( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanweapon_laser_trip( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_nuke_eject( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_nuke_eject( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_particle_wall( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_particle_wall( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_particle_wall( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_particle_wall( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_phase_dash( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanability_phase_dash( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanability_phase_dash( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanability_phase_dash( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_power_shot( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_power_shot( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_power_shot( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_power_shot( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_rearm( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanability_rearm( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanability_rearm( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanability_rearm( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_rocketeer_ammo_swap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_rocketeer_ammo_swap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_rocketeer_ammo_swap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_rocketeer_ammo_swap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_slow_trap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_slow_trap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_slow_trap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanweapon_slow_trap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanability_smoke( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanability_smoke( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_sonar_pulse( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanability_sonar_pulse( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanability_sonar_pulse( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanability_sonar_pulse( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_tether_trap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_tether_trap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_tether_trap( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_tether_trap( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_TimeShift( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_TimeShift( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_AmpCore( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_AmpCore( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_AmpCore( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_AmpCore( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titancore_flame_wave( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titancore_flame_wave( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_salvo_core( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_salvo_core( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_salvo_core( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_salvo_core( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_arc_wave( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_arc_wave( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_arc_wave( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_arc_wave( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_dumbfire_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_dumbfire_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_dumbfire_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanweapon_dumbfire_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_FlameWall( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_FlameWall( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_FlameWall( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_FlameWall( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_flightcore_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_flightcore_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_flightcore_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_flightcore_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_heat_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_heat_shield( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_heat_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_heat_shield( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_homing_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_homing_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_homing_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_homing_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_laser_lite( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_laser_lite( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_laser_lite( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanweapon_laser_lite( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_leadwall( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_leadwall( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_leadwall( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_leadwall( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_Meteor( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_Meteor( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_Meteor( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_Meteor( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_salvo_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_salvo_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_particle_accelerator( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_particle_accelerator( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_particle_accelerator( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_particle_accelerator( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_predator_cannon( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_predator_cannon( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_predator_cannon( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_predator_cannon( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_TitanWeapon_Rocketeer_RocketStream( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_TitanWeapon_Rocketeer_RocketStream( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_TitanWeapon_Rocketeer_RocketStream( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_TitanWeapon_Rocketeer_RocketStream( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_salvo_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanweapon_salvo_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_shoulder_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_shoulder_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_shoulder_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_shoulder_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_sniper( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_sniper( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_sniper( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_sniper( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_40mm( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_40mm( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_40mm( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_40mm( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_stun_laser( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_stun_laser( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_stun_laser( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanweapon_stun_laser( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_tracker_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_tracker_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_tracker_rockets( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNPCPrimaryAttack_titanweapon_tracker_rockets( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_vortex_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_vortex_shield( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_vortex_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_vortex_shield( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_smr( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_smr( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_smr( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_smr( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_GenericBoltWithDrop_Player( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_GenericBoltWithDrop_Player( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_GenericBoltWithDrop_NPC( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_GenericBoltWithDrop_NPC( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_xo16( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_titanweapon_xo16( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_xo16( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_titanweapon_xo16( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_alternator_smg( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_alternator_smg( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_alternator_smg( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_alternator_smg( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_arc_launcher( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_arc_launcher( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_defender( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_defender( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_defender( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_defender( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_doubletake( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_doubletake( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_doubletake( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_doubletake( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_DroneBeam( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_DroneBeam( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_DronePlasma( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_DronePlasma( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_dronerocket( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_dronerocket( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_engineer_combat_drone( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_engineer_combat_drone( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_lmg( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_lmg( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_GunshipLauncher( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_GunshipLauncher( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_GunshipLauncher( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_GunshipLauncher( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_gunship_missile( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_gunship_missile( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_lstar( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_lstar( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_lstar( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_lstar( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_mastiff( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_mastiff( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_mastiff( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_mastiff( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_mega_turret( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_mega_turret( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_mega_turret( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_mega_turret( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_mgl( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_mgl( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_mgl( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_mgl( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_npc_rocket_launcher( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_npc_rocket_launcher( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_npc_rocket_launcher( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_npc_rocket_launcher( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_rocket_launcher( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_rocket_launcher( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_rocket_launcher( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_rocket_launcher( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_shotgun( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_shotgun( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_shotgun( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_shotgun( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_shotgun_doublebarrel( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_shotgun_doublebarrel( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_shotgun_doublebarrel( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_shotgun_doublebarrel( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_shotgun_pistol( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_shotgun_pistol( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_shotgun_pistol( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_shotgun_pistol( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_smart_pistol( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_smart_pistol( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_sniper( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_sniper( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_sniper( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_sniper( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_softball( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponPrimaryAttack_weapon_softball( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_softball( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_softball( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_SuperSpectre( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_SuperSpectre( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_TurretLaser_Mega( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_TurretLaser_Mega( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_TurretPlasma( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_TurretPlasma( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_TurretPlasma_Mega( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_TurretPlasma_Mega( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_yh803Rocket( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_yh803Rocket( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_yh803( entity weapon, WeaponPrimaryAttackParams attackParams )
+{
+    var result = OnWeaponNpcPrimaryAttack_weapon_yh803( weapon, attackParams )
+    if ( result == 0 )
+        return 0
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
+    return result
+}
+#endif
+
