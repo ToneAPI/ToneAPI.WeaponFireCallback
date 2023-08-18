@@ -1,0 +1,5 @@
+WeaponData
+{
+	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_tracker_rockets"
+	"OnWeaponNpcPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_tracker_rockets"
+}

@@ -1,4 +1,5 @@
 WeaponData
 {
 	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_GenericBoltWithDrop_Player"
+	"OnWeaponNpcPrimaryAttack"						"WeaponFireCallbacks_OnWeaponPrimaryAttack_GenericBoltWithDrop_NPC"
 }

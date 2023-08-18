@@ -1,0 +1,5 @@
+WeaponData
+{
+	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_slow_trap"
+    "OnWeaponNPCPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_slow_trap"
+}

@@ -1,0 +1,5 @@
+WeaponData
+{
+    "OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack"
+	"OnWeaponNpcPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_yh803"
+}
