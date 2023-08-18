@@ -1,6 +1,6 @@
 # WeaponFireCallbacks
 
-Provides `WeaponFireCallbacks_AddCallbackOnWeaponFired`, `WeaponFireCallbacks_AddCallbackOnWeaponClassFired`, and `WeaponFireCallbacks_AddCallbackOnOwnerClassFired`
+Provides `WeaponFireCallbacks_AddCallbackOnWeaponFired`, `WeaponFireCallbacks_AddCallbackOnWeaponClassFired`, `WeaponFireCallbacks_RemoveCallbackOnWeaponClassFired`, `WeaponFireCallbacks_AddCallbackOnOwnerClassFired`, and `WeaponFireCallbacks_RemoveCallbackOnOwnerClassFired`
 
 ## Use
 ```cpp
