@@ -1,0 +1,5 @@
+WeaponData
+{
+	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_particle_wall"
+	"OnWeaponNpcPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_particle_wall"
+}

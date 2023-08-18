@@ -1,0 +1,5 @@
+WeaponData
+{
+	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_rearm"
+    "OnWeaponNPCPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanability_rearm"
+}

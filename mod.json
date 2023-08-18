@@ -7,7 +7,11 @@
     "Scripts": [
         {
             "Path": "weaponFireCallbacks.gnut",
-            "RunOn": "SERVER"
+            "RunOn": "CLIENT || SERVER"
+        },
+        {
+            "Path": "weaponFireReroutes.gnut",
+            "RunOn": "CLIENT || SERVER"
         }
     ]
 }

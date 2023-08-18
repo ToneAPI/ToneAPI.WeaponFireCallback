@@ -1,4 +1,5 @@
 WeaponData
 {
 	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_shotgun_doublebarrel"
+	"OnWeaponNpcPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_shotgun_doublebarrel"
 }

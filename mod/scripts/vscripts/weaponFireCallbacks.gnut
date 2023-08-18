@@ -3,194 +3,151 @@ untyped
 globalize_all_functions
 
 struct {
-    table < entity, array< void functionref(WeaponPrimaryAttackParams attackParams) > > weaponCallbacks
+    table < entity, array< void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) > > weaponCallbacks
+    table < string, array< void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) > > weaponClassCallbacks
+    table < string, array< void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) > > ownerClassCallbacks
+    bool clearThreadRunning = false // Only used on client
 } file
 
-void function AddCallback_OnWeaponFired(entity weapon, void functionref(WeaponPrimaryAttackParams attackParams) callback){
-    if(weapon in file.weaponCallbacks){
-        file.weaponCallbacks[weapon].append(callback)
-    }else{
+void function WeaponFireCallbacks_AddCallbackOnWeaponFired( entity weapon, void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) callback )
+{
+    if ( !IsValid( weapon ) )
+        return
+
+    if ( weapon in file.weaponCallbacks )
+        file.weaponCallbacks[weapon].append( callback )
+    else
         file.weaponCallbacks[weapon] <- [callback]
-    }
-    AddEntityDestroyedCallback(weapon, HandleWeaponDestroyed)
+
+    #if SERVER
+    AddEntityDestroyedCallback( weapon, WeaponFireCallbacks_HandleWeaponDestroyed )
+    #else
+    // Per-entity destroyed callbacks don't exist on client. Client needs to clear invalid keys periodically.
+    if ( !file.clearThreadRunning )
+        thread ClearInvalidWeaponsThread()
+    #endif
 }
 
-function HandleWeaponDestroyed(weapon){
-    entity w = expect entity(weapon)
-    if(w in file.weaponCallbacks){
+void function WeaponFireCallbacks_AddCallbackOnWeaponClassFired( string weaponClass, void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) callback )
+{
+    if ( weaponClass in file.weaponClassCallbacks )
+        file.weaponClassCallbacks[weaponClass].append( callback )
+    else
+        file.weaponClassCallbacks[weaponClass] <- [callback]
+}
+
+void function WeaponFireCallbacks_RemoveCallbackOnWeaponClassFired( string weaponClass, void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) callback )
+{
+    if ( weaponClass in file.weaponClassCallbacks )
+    {
+        file.weaponClassCallbacks[weaponClass].fastremovebyvalue( callback )
+        if ( file.weaponClassCallbacks[weaponClass].len() == 0 )
+            delete file.weaponClassCallbacks[weaponClass]
+    }
+}
+
+void function WeaponFireCallbacks_AddCallbackOnOwnerClassFired( string ownerClass, void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) callback )
+{
+    if ( ownerClass in file.ownerClassCallbacks )
+        file.ownerClassCallbacks[ownerClass].append( callback )
+    else
+        file.ownerClassCallbacks[ownerClass] <- [callback]
+}
+
+void function WeaponFireCallbacks_RemoveCallbackOnOwnerClassFired( string ownerClass, void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) callback )
+{
+    if ( ownerClass in file.ownerClassCallbacks )
+    {
+        file.ownerClassCallbacks[ownerClass].fastremovebyvalue( callback )
+        if ( file.ownerClassCallbacks[ownerClass].len() == 0 )
+            delete file.ownerClassCallbacks[ownerClass]
+    }
+}
+
+function WeaponFireCallbacks_HandleWeaponDestroyed( weapon )
+{
+    entity w = expect entity( weapon )
+    if ( w in file.weaponCallbacks )
         delete file.weaponCallbacks[w]
-    }
 }
 
-void function OnWeaponFired(entity weapon, WeaponPrimaryAttackParams attackParams){
-    if(weapon in file.weaponCallbacks){
-        array< void functionref(WeaponPrimaryAttackParams attackParams) > callbacks = file.weaponCallbacks[weapon]
-        foreach(callback in callbacks){
-            callback(attackParams)
+#if CLIENT
+void function ClearInvalidWeaponsThread()
+{
+    file.clearThreadRunning = true
+
+    while( file.weaponCallbacks.len() > 0 )
+    {
+        array< entity > invalidList = []
+
+        foreach( key, callback in file.weaponCallbacks )
+        {
+            if ( !IsValid( key ) )
+                invalidList.append( key )
         }
+
+        foreach( w in invalidList )
+            delete file.weaponCallbacks[w]
+        
+        wait 1.0 // Some arbitrary number that isn't WaitFrame(), don't need to run this very often
     }
+
+    file.clearThreadRunning = false
 }
+#endif
 
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_alternator_smg( entity weapon, WeaponPrimaryAttackParams attackParams )
+void function WeaponFireCallbacks_OnWeaponFired( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed )
 {
-    var result = OnWeaponPrimaryAttack_alternator_smg(weapon, attackParams)
-    if(result == 0){
-        return 0
+    if ( weapon in file.weaponCallbacks )
+    {
+        #if CLIENT
+            ClearInvalidWeapons()
+        #endif
+        
+        array< void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) > callbacks = file.weaponCallbacks[weapon]
+        foreach ( callback in callbacks )
+            callback( weapon, attackParams, ammoUsed )
     }
-    OnWeaponFired(weapon, attackParams)
-    return result
+
+    string weaponClass = weapon.GetWeaponClassName()
+    if ( weaponClass in file.weaponClassCallbacks )
+    {
+        array< void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) > callbacks = file.weaponClassCallbacks[weaponClass]
+        foreach ( callback in callbacks )
+            callback( weapon, attackParams, ammoUsed )
+    }
+
+    entity owner = weapon.GetWeaponOwner()
+    if ( !IsValid( owner ) )
+        return
+
+    string ownerClass = owner.GetClassName()
+    if ( ownerClass in file.ownerClassCallbacks )
+    {
+        array< void functionref( entity weapon, WeaponPrimaryAttackParams attackParams, var ammoUsed ) > callbacks = file.ownerClassCallbacks[ownerClass]
+        foreach ( callback in callbacks )
+            callback( weapon, attackParams, ammoUsed )
+    }
 }
 
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_defender( entity weapon, WeaponPrimaryAttackParams attackParams )
+var function WeaponFireCallbacks_OnWeaponPrimaryAttack( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    var result = OnWeaponPrimaryAttack_weapon_defender(weapon, attackParams)
-    if(result == 0){
+    weapon.EmitWeaponNpcSound( LOUD_WEAPON_AI_SOUND_RADIUS_MP, 0.2 )
+    var result = weapon.FireWeaponBullet( attackParams.pos, attackParams.dir, 1, weapon.GetWeaponDamageFlags() )
+    if ( result == 0 )
         return 0
-    }
-    OnWeaponFired(weapon, attackParams)
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
 
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_doubletake( entity weapon, WeaponPrimaryAttackParams attackParams )
+#if SERVER
+var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
-    var result = OnWeaponPrimaryAttack_weapon_doubletake(weapon, attackParams)
-    if(result == 0){
+    weapon.EmitWeaponNpcSound( LOUD_WEAPON_AI_SOUND_RADIUS_MP, 0.2 )
+    var result = weapon.FireWeaponBullet( attackParams.pos, attackParams.dir, 1, weapon.GetWeaponDamageFlags() )
+    if ( result == 0 )
         return 0
-    }
-    OnWeaponFired(weapon, attackParams)
+    WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_lmg( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_lmg(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_lstar( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_lstar(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_mastiff( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_mastiff(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_mgl( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_mgl(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_rocket_launcher( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_rocket_launcher(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_shotgun( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_shotgun(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_shotgun_doublebarrel( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_shotgun_doublebarrel(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_shotgun_pistol( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_shotgun_pistol(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_smart_pistol( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_smart_pistol(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_smr( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_smr(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_sniper( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_sniper(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_softball( entity weapon, WeaponPrimaryAttackParams attackParams )
-{
-    var result = OnWeaponPrimaryAttack_weapon_softball(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_generic( entity weapon, WeaponPrimaryAttackParams attackParams ){
-    OnWeaponFired(weapon, attackParams)
-}
-
-var function WeaponFireCallbacks_OnWeaponPrimaryAttack_GenericBoltWithDrop_Player( entity weapon, WeaponPrimaryAttackParams attackParams ){
-    var result = OnWeaponPrimaryAttack_GenericBoltWithDrop_Player(weapon, attackParams)
-    if(result == 0){
-        return 0
-    }
-    OnWeaponFired(weapon, attackParams)
-    return result
-}
+#endif

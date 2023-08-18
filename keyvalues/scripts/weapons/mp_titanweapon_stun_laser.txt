@@ -1,0 +1,5 @@
+WeaponData
+{
+	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_stun_laser"
+    "OnWeaponNPCPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_stun_laser"
+}

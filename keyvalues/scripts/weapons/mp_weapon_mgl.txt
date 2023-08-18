@@ -1,4 +1,5 @@
 WeaponData
 {
 	"OnWeaponPrimaryAttack"							"WeaponFireCallbacks_OnWeaponPrimaryAttack_weapon_mgl"
+	"OnWeaponNpcPrimaryAttack"						"WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_weapon_mgl"
 }
