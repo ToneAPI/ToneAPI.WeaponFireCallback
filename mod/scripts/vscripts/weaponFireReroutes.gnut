@@ -23,8 +23,6 @@ var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_ammo_swap( entity weap
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_basic_block( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponPrimaryAttack_titanability_basic_block( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -32,8 +30,6 @@ var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_basic_block(
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_smoke( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponPrimaryAttack_titanability_smoke( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -170,8 +166,6 @@ var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_power_shot( entity wea
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_rearm( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponPrimaryAttack_titanability_rearm( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -180,8 +174,6 @@ var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanability_rearm( entit
 var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanability_rearm( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponNPCPrimaryAttack_titanability_rearm( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -231,8 +223,6 @@ var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_slow_trap(
 var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanability_smoke( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponNpcPrimaryAttack_titanability_smoke( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -419,8 +409,6 @@ var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_flightcore
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_heat_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponPrimaryAttack_titanweapon_heat_shield( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -429,8 +417,6 @@ var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_heat_shield( 
 var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_heat_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponNpcPrimaryAttack_titanweapon_heat_shield( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -699,8 +685,6 @@ var function WeaponFireCallbacks_OnWeaponNPCPrimaryAttack_titanweapon_tracker_ro
 var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_vortex_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponPrimaryAttack_titanweapon_vortex_shield( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
@@ -709,8 +693,6 @@ var function WeaponFireCallbacks_OnWeaponPrimaryAttack_titanweapon_vortex_shield
 var function WeaponFireCallbacks_OnWeaponNpcPrimaryAttack_titanweapon_vortex_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
 {
     var result = OnWeaponNpcPrimaryAttack_titanweapon_vortex_shield( weapon, attackParams )
-    if ( result == 0 )
-        return 0
     WeaponFireCallbacks_OnWeaponFired( weapon, attackParams, result )
     return result
 }
